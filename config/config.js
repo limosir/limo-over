@@ -58,22 +58,26 @@ export default {
           name:"基础信息管理",
           routes: [
             {
+              path: '/baseinfomanager',
+              redirect: '/baseinfomanager/coopcompanyinfo',
+            },
+            {
               name:"合作公司信息",
               path: '/baseinfomanager/coopcompanyinfo',
               icon: 'smile',
-              component: './baseInfoManager/coopCompanyInfo'
+              component: './baseinfomanager/coopcompanyinfo'
             },
             {
               name:"个人开发者信息",
-              path: '/baseInfoManager/aloneDeveloperInfor',
+              path: '/baseinfomanager/aloneDeveloperInfor',
               icon: 'smile',
-              component: './baseInfoManager/aloneDeveloperInfor'
+              component: './baseinfomanager/aloneDeveloperInfor'
             },
             {
               name:"游戏基础信息",
-              path: '/baseInfoManager/gameBasics',
+              path: '/baseinfomanager/gameBasics',
               icon: 'smile',
-              component: './baseInfoManager/gameBasics'
+              component: './baseinfomanager/gameBasics'
             }
           ]
         },

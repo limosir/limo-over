@@ -1,12 +1,12 @@
 import memoizeOne from 'memoize-one';
 import isEqual from 'lodash/isEqual';
 
-// import { menuName } from "../../public/menuName"
+
 import Authorized from '@/utils/Authorized';
 
 const { check } = Authorized;
 
-// Conversion router to menu.
+//转换路由器到菜单
 function formatter(data, parentAuthority) {
   return data
     .map(item => {
@@ -27,7 +27,7 @@ function formatter(data, parentAuthority) {
         // locale,
         authority: item.authority || parentAuthority,
       };
-      console.log("id", item, "defaultMessage")
+      console.log("id", item, "result",result)
       if (item.routes) {
         const children = formatter(item.routes, item.authority);
         // Reduce memory usage
@@ -104,8 +104,11 @@ export default {
       const breadcrumbNameMap = memoizeOneGetBreadcrumbNameMap(menuData);
       yield put({
         type: 'save',
-        payload: { menuData, breadcrumbNameMap },
+        // payload: { menuData, breadcrumbNameMap },
+        payload: { menuData }
       });
+      console.log('menuData',menuData)
+      console.log('breadcrumbNameMap',menuData)
     },
   },
 
