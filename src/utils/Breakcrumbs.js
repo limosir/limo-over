@@ -5,6 +5,7 @@ import withBreadcrumbs from 'react-router-breadcrumbs-hoc';
 const routes = [
   { path: '/baseinfomanager', breadcrumb: '基础信息管理' },
   { path: '/baseinfomanager/coopcompanyinfo', breadcrumb: '合作公司信息' },
+  { path: '/baseinfomanager/coopcompanyinfo/detail', breadcrumb: '详情页' },
   { path: '/baseinfomanager/aloneDeveloperInfor', breadcrumb: '个人开发者信息' },
   { path: '/baseinfomanager/gameBasics', breadcrumb: '游戏基础信息' },
 ];

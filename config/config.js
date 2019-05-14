@@ -65,7 +65,17 @@ export default {
               name:"合作公司信息",
               path: '/baseinfomanager/coopcompanyinfo',
               icon: 'smile',
-              component: './baseinfomanager/coopcompanyinfo'
+              // component: './baseinfomanager/coopcompanyinfo',
+              routes: [
+                    {
+                      path: '/baseinfomanager/coopcompanyinfo/detail',
+                      component: './baseinfomanager/coopcompanyinfo/detail/index',
+                    },
+                    {
+                      path: '/baseinfomanager/coopcompanyinfo',
+                      component: './baseinfomanager/coopcompanyinfo',
+                    },
+                  ],
             },
             {
               name:"个人开发者信息",

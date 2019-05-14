@@ -28,10 +28,10 @@ class businessFrom extends PureComponent{
     //判断状态是添加还是编辑
     goAdd = (state,text, record)=>{
         if(state==='edit'){
-            this.props.dispatch(routerRedux.push({ pathname:'/base/business/edit',state: record }))
+            this.props.dispatch(routerRedux.push({ pathname:'/baseinfomanager/coopcompanyinfo/detail',state: record }))
             console.log(state, record)
         }else{
-            this.props.dispatch(routerRedux.push({ pathname:'/base/business/add' }))
+            this.props.dispatch(routerRedux.push({ pathname:'/baseinfomanager/coopcompanyinfo/detail' }))
         }
     }
     //分页点击事件
@@ -50,9 +50,9 @@ class businessFrom extends PureComponent{
     deleteItem = (text, record)=>{
         Modal.confirm({
             title: '确定要删除这条数据吗?',
-            okText: 'Yes',
-            okType: 'danger',
-            cancelText: 'No',
+            okText: '确定',
+            // okType: 'danger',
+            cancelText: '取消',
             iconType:'warning',
             onOk() {
               console.log('OK',text, record);
@@ -118,7 +118,7 @@ class businessFrom extends PureComponent{
                                             </Select>
                                         )}
                                     </FormItem>
-                                    <FormItem label="流水状态" className={styles.searchItem} {...spanCol}>
+                                    <FormItem label="流水状态" className={styles.searchItem}  {...spanCol}>
                                         {getFieldDecorator('device_type',{
                                             initialValue:'全部'
                                         })(
@@ -135,9 +135,9 @@ class businessFrom extends PureComponent{
                                 </Col>
                                 <Col span={6}>
                                     <FormItem>
-                                        <Button type="primary"  htmlType="submit" >查询</Button>
-                                        <Button type="primary"   onClick={this.resetForm}>重置</Button>
-                                        <Button type="primary"   onClick={this.goAdd}>新增企业</Button>
+                                        <Button type="primary" className="mgr10"  htmlType="submit" >查询</Button>
+                                        <Button type="primary" className="mgr20"   onClick={this.resetForm}>重置</Button>
+                                        <Button type="primary" className="mgr10"   onClick={this.goAdd}>新增企业</Button>
                                     </FormItem>
                                 </Col>
                             </Row>
