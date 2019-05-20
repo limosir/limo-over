@@ -13,39 +13,39 @@ class detailPage extends Component{
   constructor(props){
     super(props)
     this.state={
-        selectedRowKeys:[],
-        selectedRows: [],
+      bankInfo:[
+        { id:'1',months:'jkjkjkjjkk'},
+        { id:'2',months:'jkjkjkjjkk'},
+        { id:'3',months:'jkjkjkjjkk'},
+        { id:'4',months:'jkjkjkjjkk'},
+       ]
     }
 }
-callback = (change) => {
-  console.log(change)
-}
-genExtra = (keyValue) => (
-  <Icon
-    type="setting"
-    onClick={event => {
-      // If you don't want click extra trigger collapse, you can prevent this:
-      event.stopPropagation();
-      console.log(keyValue)
-    }}
-    />
-    );
+
 render(){
-  const dataSource=[
-    { id:'1',months:'jkjkjkjjkk'},
-    { id:'2',months:'jkjkjkjjkk'},
-    { id:'3',months:'jkjkjkjjkk'},
-    { id:'4',months:'jkjkjkjjkk'},
-   ]
+  // const dataSource=[
+  //   { id:'1',months:'jkjkjkjjkk'},
+  //   { id:'2',months:'jkjkjkjjkk'},
+  //   { id:'3',months:'jkjkjkjjkk'},
+  //   { id:'4',months:'jkjkjkjjkk'},
+  //  ]
    const genExtra = (keyValue) => (
-    <Icon
-      type="setting"
-      onClick={event => {
+      <Icon type="plus-circle" theme="twoTone" onClick={event => {
         // If you don't want click extra trigger collapse, you can prevent this:
         event.stopPropagation();
-        console.log("对应table添加一条空数据",keyValue)
-      }}
-      />
+        
+        this.setState({
+          bankInfo: [
+            { id:'1',months:'jkjkjkjjkk'},
+            { id:'2',months:'jkjkjkjjkk'},
+            { id:'3',months:'jkjkjkjjkk'},
+            { id:'4',months:'jkjkjkjjkk'},
+            { id:'5',months:'jkjkjkjjkk'}
+           ]
+        })
+        console.log("对应table添加一条空数据",keyValue,this.props.location.query)
+        console.log("state.bankInfo",this.state.bankInfo)
+      }}/>
       );
 const columns=[
     {title:'序号',visible:true,dataIndex:'index',align:'center',fixed:true,width:70,render:(text,record,index)=>index+1},
@@ -97,7 +97,7 @@ const columns=[
             <div>{text}</div>
           </Panel>
           <Panel header="银行信息" key="4" extra={genExtra(4)}>
-            <Table columns={columns} dataSource={dataSource} bordered 
+            <Table columns={columns} dataSource={this.state.bankInfo} bordered 
                 rowKey={record=>record.id}  onChange={this.changeTable} pagination={false}/>
           </Panel>
           <Panel header="邮寄地址" key="5" extra={genExtra(5)}>

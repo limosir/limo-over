@@ -1,7 +1,7 @@
 import React,{PureComponent} from 'react'
 import DefaultBreadcrumb from '@/utils/Breakcrumbs'
 import {Form,Input,Button,Select,Row,Col,Table,Breadcrumb,Modal,Card } from 'antd'
-import {routerRedux} from 'dva/router'
+import router from 'umi/router';
 import {connect} from 'dva'
 import styles from'./index.less'
 const FormItem = Form.Item
@@ -10,8 +10,16 @@ class businessFrom extends PureComponent{
     constructor(props){
         super(props)
         this.state={
-            selectedRowKeys:[],
-            selectedRows: [],
+            companuList:[
+                { id:'1',months:'jkjkjkjjkk',business_name:"某某企业",start_time_day:"中国",end_time_day: "RMB"},
+                { id:'2',months:'jkjkjkjjkk'},
+                { id:'3',months:'jkjkjkjjkk'},
+                { id:'4',months:'jkjkjkjjkk'},
+                { id:'5',months:'jkjkjkjjkk'},
+                { id:'6',months:'jkjkjkjjkk'},
+                { id:'7',months:'jkjkjkjjkk'},
+               ],
+               selectedRowKeys:[]
         }
     }
     // 查询
@@ -28,10 +36,20 @@ class businessFrom extends PureComponent{
     //判断状态是添加还是编辑
     goAdd = (state,text, record)=>{
         if(state==='edit'){
-            this.props.dispatch(routerRedux.push({ pathname:'/baseinfomanager/coopcompanyinfo/detail',state: record }))
-            console.log(state, record)
+            // this.props.dispatch(router.push({ 
+            //     pathname:'/baseinfomanager/coopcompanyinfo/detail',
+            //     query:{
+            //         "type": state,
+            //         "data": record
+            //     } }))
+            router.push({ 
+                pathname:'/baseinfomanager/coopcompanyinfo/detail',
+                query:{
+                    style:state,
+                    data:record
+                } })
         }else{
-            this.props.dispatch(routerRedux.push({ pathname:'/baseinfomanager/coopcompanyinfo/detail' }))
+            this.props.dispatch(router.push({ pathname:'/baseinfomanager/coopcompanyinfo/detail' }))
         }
     }
     //分页点击事件
@@ -65,15 +83,6 @@ class businessFrom extends PureComponent{
     render(){
         const {getFieldDecorator} = this.props.form
         const spanCol = {labelCol:{span:8},wrapperCol:{span:16}}
-        const dataSource=[
-            { id:'1',months:'jkjkjkjjkk',business_name:"某某企业",start_time_day:"中国",end_time_day: "RMB"},
-            { id:'2',months:'jkjkjkjjkk'},
-            { id:'3',months:'jkjkjkjjkk'},
-            { id:'4',months:'jkjkjkjjkk'},
-            { id:'5',months:'jkjkjkjjkk'},
-            { id:'6',months:'jkjkjkjjkk'},
-            { id:'7',months:'jkjkjkjjkk'},
-           ]
         const columns=[
             {title:'序号',visible:true,dataIndex:'index',align:'center',fixed:true,width:70,render:(text,record,index)=>index+1},
             {title:'企业ID',visible:true,dataIndex: 'months',orter:true,align:'center'},
@@ -100,7 +109,6 @@ class businessFrom extends PureComponent{
         }
         return (
             <div className={styles.business}> 
-                
                 <Card bordered={false}>
                 <DefaultBreadcrumb/>
                     <div className={styles.search} id="search">
@@ -145,7 +153,7 @@ class businessFrom extends PureComponent{
                     </div>
                 </Card> 
                 <div className={styles.content}>
-                    <Table columns={columns} dataSource={dataSource} bordered 
+                    <Table columns={columns} dataSource={this.state.companuList} bordered 
                     rowKey={record=>record.id}  pagination={paginationSet} />
                 </div>
             </div>

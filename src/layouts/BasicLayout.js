@@ -49,7 +49,7 @@ class BasicLayout extends React.PureComponent {
   constructor(props) {
     super(props);
     this.getPageTitle = memoizeOne(this.getPageTitle);
-    this.matchParamsPath = memoizeOne(this.matchParamsPath, isEqual);
+    // this.matchParamsPath = memoizeOne(this.matchParamsPath, isEqual);
   }
 
   componentDidMount() {
@@ -87,10 +87,10 @@ class BasicLayout extends React.PureComponent {
     };
   }
 
-  matchParamsPath = (pathname, breadcrumbNameMap) => {
-    const pathKey = Object.keys(breadcrumbNameMap).find(key => pathToRegexp(key).test(pathname));
-    return breadcrumbNameMap[pathKey];
-  };
+  // matchParamsPath = (pathname, breadcrumbNameMap) => {
+  //   const pathKey = Object.keys(breadcrumbNameMap).find(key => pathToRegexp(key).test(pathname));
+  //   return breadcrumbNameMap[pathKey];
+  // };
 
   getRouterAuthority = (pathname, routeData) => {
     let routeAuthority = ['noAuthority'];
@@ -108,19 +108,19 @@ class BasicLayout extends React.PureComponent {
     return getAuthority(pathname, routeData);
   };
 
-  getPageTitle = (pathname, breadcrumbNameMap) => {
-    const currRouterData = this.matchParamsPath(pathname, breadcrumbNameMap);
+  // getPageTitle = (pathname, breadcrumbNameMap) => {
+  //   const currRouterData = this.matchParamsPath(pathname, breadcrumbNameMap);
 
-    if (!currRouterData) {
-      return 'Ant Design Pro';
-    }
-    // const pageName = formatMessage({
-    //   id: currRouterData.locale || currRouterData.name,
-    //   defaultMessage: currRouterData.name,
-    // });
-    console.log("currRouterData",currRouterData)
-    return `${currRouterData.name} - Ant Design Pro`;
-  };
+  //   if (!currRouterData) {
+  //     return 'Ant Design Pro';
+  //   }
+  //   // const pageName = formatMessage({
+  //   //   id: currRouterData.locale || currRouterData.name,
+  //   //   defaultMessage: currRouterData.name,
+  //   // });
+  //   console.log("currRouterData",currRouterData)
+  //   return `${currRouterData.name} - Ant Design Pro`;
+  // };
 
   getLayoutStyle = () => {
     const { fixSiderbar, isMobile, collapsed, layout } = this.props;
@@ -192,7 +192,7 @@ class BasicLayout extends React.PureComponent {
     );
     return (
       <React.Fragment>
-        <DocumentTitle title={this.getPageTitle(pathname, breadcrumbNameMap)}>
+        <DocumentTitle title="小米游戏结算平台">
           <ContainerQuery query={query}>
             {params => (
               <Context.Provider value={this.getContext()}>
