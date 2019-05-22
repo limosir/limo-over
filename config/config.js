@@ -29,7 +29,18 @@ export default {
       },
     ],
   ],
+  /**
+   * 代理配置
+   */
+  proxy: {
+    "/api": {
+      "target": "http://jsonplaceholder.typicode.com/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api" : "" }
+    }
+  },
   targets: { ie: 11 },
+
   /**
    * 路由相关配置
    */
@@ -50,7 +61,11 @@ export default {
       routes: [
         {
           path: '/',
-          redirect: '/baseinfomanager/coopcompanyinfo',
+          redirect: '/login',
+        },
+        {
+          path: '/login',
+          component: './login',
         },
         {
           path: '/baseinfomanager',

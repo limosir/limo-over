@@ -190,6 +190,10 @@ class BasicLayout extends React.PureComponent {
         </Layout>
       </Layout>
     );
+    if (this.props.location.pathname === '/login') {
+      console.log("props- login",this.props)
+      return <div>{this.props.children}</div>
+    }
     return (
       <React.Fragment>
         <DocumentTitle title="小米游戏结算平台">

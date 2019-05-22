@@ -12,7 +12,6 @@ const routes = [
 
 const DefaultBreadcrumb = withBreadcrumbs(routes)(({ breadcrumbs }) => (
   <div>
-    {console.log(breadcrumbs)}
     {breadcrumbs.map(({breadcrumb,match}, index) => (
       <span key={breadcrumb.key}>
         <NavLink to={match.url || ''}>

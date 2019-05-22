@@ -33,20 +33,14 @@ render(){
       <Icon type="plus-circle" theme="twoTone" onClick={event => {
         // If you don't want click extra trigger collapse, you can prevent this:
         event.stopPropagation();
-        
-        this.setState({
-          bankInfo: [
-            { id:'1',months:'jkjkjkjjkk'},
-            { id:'2',months:'jkjkjkjjkk'},
-            { id:'3',months:'jkjkjkjjkk'},
-            { id:'4',months:'jkjkjkjjkk'},
-            { id:'5',months:'jkjkjkjjkk'}
-           ]
-        })
+        //点击 添加信息 
         console.log("对应table添加一条空数据",keyValue,this.props.location.query)
         console.log("state.bankInfo",this.state.bankInfo)
       }}/>
       );
+      const changeTable =(pagination, filters, sorter)  => {
+        console.log("分页点击",pagination, filters, sorter)
+      }
 const columns=[
     {title:'序号',visible:true,dataIndex:'index',align:'center',fixed:true,width:70,render:(text,record,index)=>index+1},
     {title:'账户名称',visible:true,dataIndex: 'months',orter:true,align:'center'},
