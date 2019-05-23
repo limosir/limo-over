@@ -8,6 +8,8 @@ const routes = [
   { path: '/baseinfomanager/coopcompanyinfo/detail', breadcrumb: '详情页' },
   { path: '/baseinfomanager/aloneDeveloperInfor', breadcrumb: '个人开发者信息' },
   { path: '/baseinfomanager/gameBasics', breadcrumb: '游戏基础信息' },
+  { path: '/reportquerymanager', breadcrumb: '报表查询管理' },
+  { path: '/reportquerymanager/estimatewaterform', breadcrumb: '预估流水明细单' },
 ];
 
 const DefaultBreadcrumb = withBreadcrumbs(routes)(({ breadcrumbs }) => (

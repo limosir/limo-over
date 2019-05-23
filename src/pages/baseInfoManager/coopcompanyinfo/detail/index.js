@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'dva'
 import DefaultBreadcrumb from '@/utils/Breakcrumbs'
-import { Collapse, Icon, Select,Form,Table } from 'antd';
+import { Collapse, Icon, Select,Form,Table,Card } from 'antd';
 import { DescriptionList } from 'ant-design-pro';
 
 const { Description } = DescriptionList;
@@ -9,26 +9,7 @@ const FormItem = Form.Item
 const { Panel } = Collapse;
 const { Option } = Select;
 
-class detailPage extends Component{
-  constructor(props){
-    super(props)
-    this.state={
-      bankInfo:[
-        { id:'1',months:'jkjkjkjjkk'},
-        { id:'2',months:'jkjkjkjjkk'},
-        { id:'3',months:'jkjkjkjjkk'},
-        { id:'4',months:'jkjkjkjjkk'},
-       ]
-    }
-}
-
-render(){
-  // const dataSource=[
-  //   { id:'1',months:'jkjkjkjjkk'},
-  //   { id:'2',months:'jkjkjkjjkk'},
-  //   { id:'3',months:'jkjkjkjjkk'},
-  //   { id:'4',months:'jkjkjkjjkk'},
-  //  ]
+function  CoopdetailPage({ dispatch,list: dataSource, total, page: current }) {
    const genExtra = (keyValue) => (
       <Icon type="plus-circle" theme="twoTone" onClick={event => {
         // If you don't want click extra trigger collapse, you can prevent this:
@@ -38,18 +19,15 @@ render(){
         console.log("state.bankInfo",this.state.bankInfo)
       }}/>
       );
-      const changeTable =(pagination, filters, sorter)  => {
-        console.log("分页点击",pagination, filters, sorter)
-      }
 const columns=[
     {title:'序号',visible:true,dataIndex:'index',align:'center',fixed:true,width:70,render:(text,record,index)=>index+1},
-    {title:'账户名称',visible:true,dataIndex: 'months',orter:true,align:'center'},
-    {title:'银行账户',visible:true,dataIndex: 'business_name',align:'center'},
-    {title:'开户银行',visible:true,dataIndex: 'start_time_day',align:'center'},
-    {title:'开户支行',visible:true,dataIndex: 'end_time_day',align:'center'},
-    {title:'所在地',visible:true,dataIndex: 'end_time_day2',align:'center'},
-    {title:'业务类型',visible:true,dataIndex: 'end_time_day3',align:'center'},
-    {title:'备注',visible:true,dataIndex: 'end_time_day4',align:'center'},
+    {title:'账户名称',visible:true,dataIndex: 'key',orter:true,align:'center'},
+    {title:'银行账户',visible:true,dataIndex: 'name',align:'center'},
+    {title:'开户银行',visible:true,dataIndex: 'age',align:'center'},
+    {title:'开户支行',visible:true,dataIndex: 'address',align:'center'},
+    // {title:'所在地',visible:true,dataIndex: 'end_time_day2',align:'center'},
+    // {title:'业务类型',visible:true,dataIndex: 'end_time_day3',align:'center'},
+    // {title:'备注',visible:true,dataIndex: 'end_time_day4',align:'center'},
 ]
   const text = `
   A dog is a type of domesticated animal.
@@ -58,6 +36,7 @@ const columns=[
 `;
   return (
     <div>
+    <Card bordered={false}>
     <DefaultBreadcrumb/>
       <Collapse
           defaultActiveKey={['1','2']}
@@ -91,8 +70,8 @@ const columns=[
             <div>{text}</div>
           </Panel>
           <Panel header="银行信息" key="4" extra={genExtra(4)}>
-            <Table columns={columns} dataSource={this.state.bankInfo} bordered 
-                rowKey={record=>record.id}  onChange={this.changeTable} pagination={false}/>
+            <Table columns={columns} dataSource={dataSource} bordered 
+                rowKey={dataSource.id} pagination={false}/>
           </Panel>
           <Panel header="邮寄地址" key="5" extra={genExtra(5)}>
             <div>{text}</div>
@@ -104,10 +83,21 @@ const columns=[
             <div>{text}</div>
           </Panel>
       </Collapse>
+      </Card>
   </div>
   )
  
+
 }
+// const details = Form.create()(CoopdetailPage)
+// export default connect()(details)
+function mapStateToProps(state) {
+  const { list, total, page } = state.coopdetail;
+  return {
+    list,
+    total,
+    page,
+    loading: state.loading.models.coopdetail,
+  };
 }
-const details = Form.create()(detailPage)
-export default connect()(details)
+export default connect(mapStateToProps)(CoopdetailPage);

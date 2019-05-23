@@ -6,7 +6,7 @@ import {connect} from 'dva'
 import styles from'./index.less'
 const FormItem = Form.Item
 const {Option} = Select
-function Coopcompanyinfo ({ dispatch,list: dataSource, total, page: current }) {
+function Coopcompanyinfo ({ dispatch,list, total, page }) {
    
     // 查询
     function searchSubmit(e) {
@@ -40,7 +40,7 @@ function Coopcompanyinfo ({ dispatch,list: dataSource, total, page: current }) {
     }
     //分页点击事件
     function onChangePage(page, pageSize) {
-        console.log("分页点击",page, pageSize)
+        console.log("分页点击",page, pageSize,list)
         // this.props.dispatch({
         //     type: 'coopcompanyinfo/updateList',
         //     payload: {
@@ -150,8 +150,8 @@ function Coopcompanyinfo ({ dispatch,list: dataSource, total, page: current }) {
                     </div>
                 </Card> 
                 <div className={styles.content}>
-                    <Table columns={columns} dataSource={dataSource} bordered 
-                    rowKey={dataSource.id}  pagination={paginationSet} />
+                    <Table columns={columns} dataSource={list} bordered 
+                    rowKey={list.id}  pagination={paginationSet} />
                 </div>
             </div>
         )

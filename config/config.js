@@ -100,7 +100,106 @@ export default {
             },
             {
               name:"游戏基础信息",
+              path: '/baseinfomanager/1',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            }
+          ]
+        },
+        {//reportquerymanager
+          path: '/reportquerymanager',
+          icon: 'smile',
+          name:"报表查询管理",
+          routes: [
+            {
+              path: '/reportquerymanager',
+              redirect: '/reportquerymanager/estimatewaterform',
+            },
+            {
+              name:"预估流水明细表",
+              path: '/reportquerymanager/estimatewaterform',
+              icon: 'smile',
+              component: './reportquerymanager/estimatewaterform'
+              // routes: [
+              //       {
+              //         path: '/baseinfomanager/coopcompanyinfo/detail',
+              //         component: './baseinfomanager/coopcompanyinfo/detail/index',
+              //       },
+              //       {
+              //         path: '/baseinfomanager/coopcompanyinfo',
+              //         component: './baseinfomanager/coopcompanyinfo',
+              //       },
+              //     ],
+            },
+            {
+              name:"结算流水明细表",
+              path: '/baseinfomanager/4',
+              icon: 'smile',
+              component: './baseinfomanager/aloneDeveloperInfor'
+            },
+            {
+              name:"结算流水汇总表",
+              path: '/baseinfomanager/5',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"零钱体现汇总表",
+              path: '/baseinfomanager/6',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"会员卡重置汇总表",
+              path: '/baseinfomanager/7',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"金钻重置汇总表",
+              path: '/baseinfomanager/8',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"计算状态查询表",
+              path: '/baseinfomanager/9',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"扣项金额查询表",
+              path: '/baseinfomanager/0',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"应付账龄分析表",
+              path: '/baseinfomanager/11',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"应收账龄分析表",
+              path: '/baseinfomanager/12',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"应收坏账计提表",
+              path: '/baseinfomanager/13',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"进项发票查询表",
               path: '/baseinfomanager/gameBasics',
+              icon: 'smile',
+              component: './baseinfomanager/gameBasics'
+            },
+            {
+              name:"消项发票查询表",
+              path: '/baseinfomanager/14',
               icon: 'smile',
               component: './baseinfomanager/gameBasics'
             }
