@@ -105,7 +105,7 @@ function Coopcompanyinfo ({ dispatch,list, total, page }) {
         
        
         return (
-            <div className={styles.business}> 
+            <div className='business'> 
                 <Card bordered={false}>
                 <DefaultBreadcrumb/>
                     <div className={styles.search} id="search">
@@ -149,7 +149,7 @@ function Coopcompanyinfo ({ dispatch,list, total, page }) {
                         </Form> */}
                     </div>
                 </Card> 
-                <div className={styles.content}>
+                <div className={styles.contentbox}>
                     <Table columns={columns} dataSource={list} bordered 
                     rowKey={list.id}  pagination={paginationSet} />
                 </div>

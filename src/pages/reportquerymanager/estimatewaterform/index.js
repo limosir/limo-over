@@ -3,7 +3,7 @@ import DefaultBreadcrumb from '@/utils/Breakcrumbs'
 import {Form,Input,DatePicker,Button,Divider,Select,Row,Col,Table,Checkbox,Card } from 'antd'
 import {connect} from 'dva'
 import cn from 'classnames'
-import './estimate.scss'
+import  styles from './index.less'
 
 const FormItem = Form.Item
 const {RangePicker} = DatePicker
@@ -15,25 +15,25 @@ class estimateForm extends PureComponent{
             {title:'序号',visible:true,dataIndex:'index',align:'center',fixed:true,width:70,render:(text,record,index)=>index+1},
             // {title:'流水ID',visible:true,dataIndex: 'pay_flow_uuid',orter:true,fixed:true,align:'center',width:100},
             {title:'业务类型',visible:true,dataIndex: 'business_name',align:'center',width:100},
-            // {title:'支付类型',visible:true,dataIndex: 'start_time_day',align:'center',width: 100},
-            // {title:'合作类型',visible:true,dataIndex: 'end_time_day',align:'center',width: 100},
-            // {title:'流水月份',visible:true,dataIndex: 'month',align:'center',width: 100},
-            // {title:'开始时间',visible:true,dataIndex: 'start_time_month',align:'center',width: 100},
-            // {title:'结束时间',visible:true,dataIndex: 'end_time_month',align:'center',width: 100},
-            {title:'APPID',visible:true,dataIndex: 'app_id',align:'center',width: 100},
-            {title:'游戏ID',visible:true,dataIndex: 'ext_id',align:'center',width: 100},
-            {title:'游戏名称',visible:true,dataIndex: 'game_name',align:'center',width: 100},
-            {title:'商户ID',visible:true,dataIndex: 'merchant_id',align:'center',width: 100},
-            {title:'商户名称',visible:true,dataIndex: 'merchant_name',align:'center',width: 100},
-            {title:'合作方ID(供应商)',visible:true,dataIndex: 'customer_local_id',align:'center',width: 150},
-            {title:'合作方名称(供应商)',visible:true,dataIndex: 'customer_name',align:'center',width: 160},
-            {title:'开发者本地ID',visible:true,dataIndex: 'channel11',align:'center',width: 120},
-            {title:'汇率',visible:true,dataIndex: 'channel12',align:'center',width: 100},
-            {title:'合作类型',visible:true,dataIndex: 'cooperation_type_id',align:'center',width: 100},
-            {title:'设备类型',visible:true,dataIndex: 'device_type_id',align:'center',width: 100},
-            {title:'支付类型',visible:true,dataIndex: 'pay_channel_id',align:'center',width: 100},
-            {title:'发票类型',visible:true,dataIndex: 'channel16',align:'center',width: 100},
-            {title:'税率',visible:true,dataIndex: 'tax_rate',align:'center',width: 100},
+            {title:'支付类型',visible:true,dataIndex: 'start_time_day',align:'center',width: 100},
+            {title:'合作类型',visible:true,dataIndex: 'end_time_day',align:'center',width: 100},
+            {title:'流水月份',visible:true,dataIndex: 'months',align:'center',width: 100},
+            {title:'开始时间',visible:true,dataIndex: 'channel1',align:'center',width: 100},
+            {title:'结束时间',visible:true,dataIndex: 'channel2',align:'center',width: 100},
+            {title:'APPID',visible:true,dataIndex: 'channel3',align:'center',width: 100},
+            {title:'游戏ID',visible:true,dataIndex: 'channel4',align:'center',width: 100},
+            {title:'游戏名称',visible:true,dataIndex: 'channel5',align:'center',width: 100},
+            {title:'商户ID',visible:true,dataIndex: 'channel6',align:'center',width: 100},
+            {title:'商户名称',visible:true,dataIndex: 'channel7',align:'center',width: 100},
+            {title:'合作方ID(供应商)',visible:true,dataIndex: 'channel8',align:'center',width: 150},
+            {title:'合作方名称(供应商)',visible:true,dataIndex: 'channel9',align:'center',width: 160},
+            {title:'开发者本地ID',visible:true,dataIndex: 'channel10',align:'center',width: 120},
+            {title:'汇率',visible:true,dataIndex: 'channel11',align:'center',width: 100},
+            {title:'合作类型',visible:true,dataIndex: 'channel12',align:'center',width: 100},
+            {title:'设备类型',visible:true,dataIndex: 'channel13',align:'center',width: 100},
+            {title:'支付类型',visible:true,dataIndex: 'channel14',align:'center',width: 100},
+            {title:'发票类型',visible:true,dataIndex: 'channel15',align:'center',width: 100},
+            {title:'税率',visible:true,dataIndex: 'channel16',align:'center',width: 100},
             {title:'实际扣减税率',visible:true,dataIndex: 'channel18',align:'center',width: 120},
             {title:'实际扣减税费',visible:true,dataIndex: 'channel19',align:'center',width: 120},
             {title:'米币礼券',visible:true,dataIndex: 'channel20',align:'center',width: 100},
@@ -50,10 +50,10 @@ class estimateForm extends PureComponent{
             {title:'渠道费 ',visible:true,dataIndex: 'channel31',align:'center',width: 100},
             {title:'扣减税率',visible:true,dataIndex: 'channel32',align:'center',width: 100},
             {title:'扣减税费 ',visible:true,dataIndex: 'channel33',align:'center',width: 100},
-            {title:'CP分成比 ',visible:true,dataIndex: 'developer_divide_rate',align:'center',width: 100},
-            {title:'预估CP分成额(含税) ',visible:true,dataIndex: 'developer_divide_amount_tax_included',align:'center',width: 160},
-            {title:'预估CP分成额(不含税) ',visible:true,dataIndex: 'developer_divide_amount_tax_excluded',align:'center',width: 180},
-            {title:'预估CP分成额(税额) ',visible:true,dataIndex: 'developer_divide_amount_tax',align:'center',width: 160},
+            // {title:'CP分成比 ',visible:true,dataIndex: 'developer_divide_rate',align:'center',width: 100},
+            // {title:'预估CP分成额(含税) ',visible:true,dataIndex: 'developer_divide_amount_tax_included',align:'center',width: 160},
+            // {title:'预估CP分成额(不含税) ',visible:true,dataIndex: 'developer_divide_amount_tax_excluded',align:'center',width: 180},
+            // {title:'预估CP分成额(税额) ',visible:true,dataIndex: 'developer_divide_amount_tax',align:'center',width: 160},
         ]
         this.state={
             monthValue:[],
@@ -64,7 +64,7 @@ class estimateForm extends PureComponent{
             'channel3','channel4','channel5','channel6','channel7','channel8','channel9','channel10','channel11'
             ,'channel12','channel13','channel14','channel15','channel16','channel17','channel18','channel19'
             ,'channel20','channel21','channel22','channel23','channel24','channel25','channel26','channel27'
-            ,'channel28','channel29','channel30','channel31','channel32','channel33','channel34'],
+            ,'channel28','channel29','channel30','channel31','channel32','channel33'],
             defaultColumns,
             showColumns:defaultColumns,
             selectedRowKeys:[],
@@ -126,7 +126,10 @@ class estimateForm extends PureComponent{
     // 更改展示字段
     checkBoxChange = (e)=>{
         const checkBoxValue = e.target.value
+        console.log(this.state.showCol,checkBoxValue)
+        console.log(this.state.showCol.indexOf(checkBoxValue))
         if(this.state.showCol.indexOf(checkBoxValue) !== -1){
+            
             this.setState({
                 showCol:this.state.showCol.filter(item=>item!==checkBoxValue)
             },()=>this.changeChecked())
@@ -193,7 +196,8 @@ class estimateForm extends PureComponent{
         //获取当前页数据
         const data =this.props.estimatewaterform.list
            data.forEach(element => {
-               listKey.push(element.pay_flow_uuid)
+               //获取rowKey字段
+               listKey.push(element.key)
            });
            return listKey;
     }
@@ -244,7 +248,7 @@ class estimateForm extends PureComponent{
             // }
         }
         return (
-            <div className="unsettled"> 
+            <div className={styles.unsettled}> 
                 <Card bordered={false}>
                 <DefaultBreadcrumb/>
                 <div className="search" id="search">
@@ -265,7 +269,7 @@ class estimateForm extends PureComponent{
                                     </Select>
                                     )}
                                 </FormItem>
-                                <FormItem label="供应商名称" className="monthItem" {...dateSpanCol}>
+                                <FormItem label="供应商名称" className={styles.monthItem} {...dateSpanCol}>
                                     {getFieldDecorator('status4')(
                                         <Input placeholder="请输入供应商名称"/>
                                     )}
@@ -274,12 +278,12 @@ class estimateForm extends PureComponent{
                             <Col span={6}>
                                 <FormItem>
                                     <Button type="primary"  htmlType="submit" className="mgr10">{btnTxt}</Button>
-                                    <Button type="primary"  className="mgr" onClick={this.resetForm}>重置</Button>
+                                    <Button type="primary"  className="mgr10" onClick={this.resetForm}>重置</Button>
                                     <Button type="primary"  className="mgr10" onClick={this.toggleSearch}>{searchTxt}</Button>
                                 </FormItem>
                             </Col>
                         </Row>
-                        <Row className={cn('mgb10',{dn:this.state.visible})} >
+                        <Row className='mgb10' style={{display:this.state.visible ? 'none': 'block'}} >
                             <Col span={22}>
                                 <FormItem label="设备类型" className="searchItem" {...spanCol}>
                                     {getFieldDecorator('pay_channel2',{
@@ -306,7 +310,7 @@ class estimateForm extends PureComponent{
                                     </Select>
                                     )}
                                 </FormItem>
-                                <FormItem label="流水月份" className="monthItem"  {...dateSpanCol}>
+                                <FormItem label="流水月份" className={styles.monthItem}  {...dateSpanCol}>
                                     {getFieldDecorator('status',{ 
                                         initialValue:this.state.monthValue
                                     })(
@@ -316,24 +320,24 @@ class estimateForm extends PureComponent{
                                 </FormItem>
                             </Col>
                         </Row>
-                        <Row className={cn({dn:this.state.visible})}>
+                        <Row style={{display:this.state.visible ? 'none': 'block'}}>
                             <Col span={24}>
                                 <FormItem label="供应商ID"  className="searchItem"  {...spanCol}>
                                     {getFieldDecorator('pay_channel5')(
                                         <Input placeholder="请输入供应商ID"/>
                                         )}
                                 </FormItem>
-                                <FormItem label="游戏ID"  className="searchItem"  {...spanCol}>
+                                <FormItem label="游戏ID"  className={styles.searchItem}  {...spanCol}>
                                     {getFieldDecorator('device_type7')(
                                         <Input placeholder="请输入游戏ID"/>
                                         )}
                                 </FormItem>
-                                <FormItem label="游戏名称"  className="monthItem" {...dateSpanCol}>
+                                <FormItem label="游戏名称"  className={styles.monthItem} {...dateSpanCol}>
                                     {getFieldDecorator('status1')(
                                         <Input placeholder="请输入游戏名称"/>
                                         )}
                                 </FormItem>
-                                <FormItem label="APPID" className="searchItem"  {...spanCol} >
+                                <FormItem label="APPID" className={styles.searchItem}  {...spanCol} >
                                     {getFieldDecorator('status2')(
                                         <Input placeholder="请输入APPID"/>
                                     )}
@@ -341,22 +345,22 @@ class estimateForm extends PureComponent{
                             </Col>
                         </Row>
                     </Form>
-                    <Divider className={cn('mgb30',{dn:this.state.visible})} orientation="left" dashed > 展示字段</Divider>
-                    <div  className={cn({dn:this.state.visible})}>
+                    <Divider className='mgb30' style={{display:this.state.visible ? 'none': 'block'}} orientation="left" dashed > 展示字段</Divider>
+                    <div  style={{display:this.state.visible ? 'none': 'block'}}>
                         {
                             this.state.defaultColumns.map(item=>{
-                                return <Checkbox className="cbw" key={item.dataIndex} value={item.dataIndex} checked={item.visible} 
+                                return <Checkbox className={styleMedia.cbw} key={item.dataIndex} value={item.dataIndex} checked={item.visible} 
                                  onChange={this.checkBoxChange}>{item.title}</Checkbox>
                             })
                         }
                     </div>
-                    <Divider className={cn('mgb30',{dn:this.state.visible})} />
+                    <Divider className='mgb30' style={{display:this.state.visible ? 'none': 'block'}} />
                 </div>
-                <div className="content por">
+                <div className={styles.contentbox}>
                     <Table columns={this.state.showColumns} dataSource={list} bordered rowSelection={rowSelection}
-                    rowKey={record=>record.pay_flow_uuid} scroll={{x: sum}} onChange={this.changeTable} loading={loading}/>
+                    rowKey={list.key} scroll={{x: sum}} onChange={this.changeTable} loading={loading}/>
                     <div className="pos">
-                        <Button type="primary" className="mgr" onClick={this.choiceAll}>全选</Button>
+                        <Button type="primary" className="mgr10" onClick={this.choiceAll}>全选</Button>
                         <Button type="primary" >导出</Button>
                     </div>
                 </div>
