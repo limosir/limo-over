@@ -255,7 +255,7 @@ class estimateForm extends PureComponent{
                     <Form layout="inline" onSubmit={this.searchSubmit}>
                         <Row className="mgb10">
                             <Col span={18}>
-                                <FormItem label="业务类型" className="searchItem" {...spanCol}>
+                                <FormItem label="业务类型" className={styles.searchItem} {...spanCol}>
                                     {getFieldDecorator('pay_channel',{
                                         initialValue:'全部'
                                     })(
@@ -285,7 +285,7 @@ class estimateForm extends PureComponent{
                         </Row>
                         <Row className='mgb10' style={{display:this.state.visible ? 'none': 'block'}} >
                             <Col span={22}>
-                                <FormItem label="设备类型" className="searchItem" {...spanCol}>
+                                <FormItem label="设备类型" className={styles.searchItem} {...spanCol}>
                                     {getFieldDecorator('pay_channel2',{
                                         initialValue:'全部'
                                     })(
@@ -294,7 +294,7 @@ class estimateForm extends PureComponent{
                                     </Select>
                                     )}
                                 </FormItem>
-                                <FormItem label="支付类型" className="searchItem" {...spanCol}>
+                                <FormItem label="支付类型" className={styles.searchItem} {...spanCol}>
                                     {getFieldDecorator('device_type3',{
                                         initialValue:'全部'
                                     })(
@@ -322,7 +322,7 @@ class estimateForm extends PureComponent{
                         </Row>
                         <Row style={{display:this.state.visible ? 'none': 'block'}}>
                             <Col span={24}>
-                                <FormItem label="供应商ID"  className="searchItem"  {...spanCol}>
+                                <FormItem label="供应商ID"  className={styles.searchItem}  {...spanCol}>
                                     {getFieldDecorator('pay_channel5')(
                                         <Input placeholder="请输入供应商ID"/>
                                         )}

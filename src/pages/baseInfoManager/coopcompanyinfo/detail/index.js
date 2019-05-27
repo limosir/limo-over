@@ -9,17 +9,18 @@ const FormItem = Form.Item
 const { Panel } = Collapse;
 const { Option } = Select;
 
-function  CoopdetailPage({ dispatch,list: dataSource, total, page: current }) {
-   const genExtra = (keyValue) => (
+class  CoopdetailPage extends Component {
+   genExtra = (keyValue) => (
       <Icon type="plus-circle" theme="twoTone" onClick={event => {
         // If you don't want click extra trigger collapse, you can prevent this:
         event.stopPropagation();
         //点击 添加信息 
-        console.log("对应table添加一条空数据",keyValue,this.props.location.query)
-        console.log("state.bankInfo",this.state.bankInfo)
+        console.log("对应table添加一条空数据",keyValue,this.props)
       }}/>
       );
-const columns=[
+render() {
+  const { list } = this.props.coopdetail;
+  const columns=[
     {title:'序号',visible:true,dataIndex:'index',align:'center',fixed:true,width:70,render:(text,record,index)=>index+1},
     {title:'账户名称',visible:true,dataIndex: 'key',orter:true,align:'center'},
     {title:'银行账户',visible:true,dataIndex: 'name',align:'center'},
@@ -66,14 +67,14 @@ const columns=[
               <Description term="地址、电话">XXXXXXXXXXXXX</Description>
             </DescriptionList>
           </Panel>
-          <Panel header="有效协议" key="3" extra={genExtra(3)}>
+          <Panel header="有效协议" key="3" extra={this.genExtra(3)}>
             <div>{text}</div>
           </Panel>
-          <Panel header="银行信息" key="4" extra={genExtra(4)}>
-            <Table columns={columns} dataSource={dataSource} bordered 
-                rowKey={dataSource.id} pagination={false}/>
+          <Panel header="银行信息" key="4" extra={this.genExtra(4)}>
+            <Table columns={columns} dataSource={list} bordered 
+                rowKey={list.key} pagination={false}/>
           </Panel>
-          <Panel header="邮寄地址" key="5" extra={genExtra(5)}>
+          <Panel header="邮寄地址" key="5" extra={this.genExtra(5)}>
             <div>{text}</div>
           </Panel>
           <Panel header="商务联系人" key="6" >
@@ -86,18 +87,15 @@ const columns=[
       </Card>
   </div>
   )
+}
+  
  
 
 }
-// const details = Form.create()(CoopdetailPage)
-// export default connect()(details)
 function mapStateToProps(state) {
-  const { list, total, page } = state.coopdetail;
   return {
-    list,
-    total,
-    page,
-    loading: state.loading.models.coopdetail,
+    coopdetail: state.coopdetail,
+    loading: state.loading.models.coopdetail
   };
 }
 export default connect(mapStateToProps)(CoopdetailPage);
