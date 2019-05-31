@@ -96,7 +96,17 @@ export default {
               name:"个人开发者信息",
               path: '/baseinfomanager/aloneDeveloperInfor',
               icon: 'smile',
-              component: './baseinfomanager/aloneDeveloperInfor'
+              // component: './baseinfomanager/aloneDeveloperInfor',
+              routes: [
+                {
+                  path: '/baseinfomanager/aloneDeveloperInfor/detail',
+                  component: './baseinfomanager/aloneDeveloperInfor/detail/index',
+                },
+                {
+                  path: '/baseinfomanager/aloneDeveloperInfor',
+                  component: './baseinfomanager/aloneDeveloperInfor',
+                },
+              ],
             },
             {
               name:"游戏基础信息",

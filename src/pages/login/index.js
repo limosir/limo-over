@@ -11,6 +11,7 @@ class LoginForm extends Component {
         this.props.form.validateFields((err,values)=>{
             if(!err){
                 console.log("要提交了，看是否保存账号密码",values)
+                //保存用户权限状态
             //   this.props.dispatch({type: 'Login/login',payload:values})
               router.push('/baseinfomanager/coopcompanyinfo')
             }
