@@ -170,13 +170,21 @@ export default {
               ],
             },
             {
-              name:"会员卡重置汇总表",
+              name:"会员卡充值汇总表",
               path: '/reportQueryManager/resetCardTotal',
               icon: 'smile',
-              component: './reportQueryManager/resetCardTotal'
+              routes: [
+                {
+                  path: '/reportQueryManager/resetCardTotal/detail',
+                  component: './reportQueryManager/resetCardTotal/detail/index',
+                },
+                {
+                  path: '/reportQueryManager/resetCardTotal',
+                  component: './reportQueryManager/resetCardTotal',
+                }]
             },
             {
-              name:"金钻重置汇总表",
+              name:"金钻充值汇总表",
               path: '/reportQueryManager/resetDiamondTotal',
               icon: 'smile',
               component: './reportQueryManager/resetDiamondTotal'
