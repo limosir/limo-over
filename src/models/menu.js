@@ -26,8 +26,7 @@ function formatter(data, parentAuthority) {
         // locale,
         authority: item.authority || parentAuthority,
       };
-      console.log('id', item, 'result', result);
-      if (item.routes) {
+        if (item.routes) {
         const children = formatter(item.routes, item.authority);
         // Reduce memory usage
         result.children = children;

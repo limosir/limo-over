@@ -8,7 +8,6 @@ import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
 import pathToRegexp from 'path-to-regexp';
 import Media from 'react-media';
-import { formatMessage } from 'umi/locale';
 import Authorized from '@/utils/Authorized';
 import logo from '../assets/logo.svg';
 import Footer from './Footer';
@@ -192,7 +191,7 @@ class BasicLayout extends React.PureComponent {
     );
     if (this.props.location.pathname === '/login') {
       console.log('props- login', this.props);
-      return <div>{this.props.children}</div>;
+      return <DocumentTitle title="小米游戏结算平台"><div>{this.props.children}</div></DocumentTitle>;
     }
     return (
       <React.Fragment>

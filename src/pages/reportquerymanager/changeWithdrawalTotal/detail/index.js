@@ -23,7 +23,7 @@ class CoopdetailPage extends Component {
     />
   );
   render() {
-    const { list } = this.props.alonedetail;
+    const { list } = this.props.changedetail;
     const columns = [
       {
         title: '序号',
@@ -73,8 +73,8 @@ class CoopdetailPage extends Component {
 }
 function mapStateToProps(state) {
   return {
-    alonedetail: state.alonedetail,
-    loading: state.loading.models.alonedetail,
+    changedetail: state.changedetail,
+    loading: state.loading.models.changedetail,
   };
 }
 export default connect(mapStateToProps)(CoopdetailPage);

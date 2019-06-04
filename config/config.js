@@ -7,16 +7,16 @@ export default {
       {
         antd: true,
         dva: { hmr: true },
-        targets: { ie: 11 },
-        locale: {
-          enable: false,
-          // default false
-          default: 'zh-CN',
-          // default zh-CN
-          baseNavigator: true,
-        },
+        // targets: { ie: 11 },
+        // locale: {
+        //   enable: false,
+        //   // default false
+        //   default: 'zh-CN',
+        //   // default zh-CN
+        //   baseNavigator: true,
+        // },
         // default true, when it is true, will use `navigator.language` overwrite default
-        dynamicImport: { loadingComponent: './components/PageLoading/index' },
+        // dynamicImport: { loadingComponent: './components/PageLoading/index' },
       },
     ],
     [
@@ -247,18 +247,6 @@ export default {
         //   name: 'more-blocks',
         //   icon: 'block',
         // },
-        {
-          name: '基础表单',
-          icon: 'smile',
-          path: '/basic-form',
-          component: './basic-form',
-        },
-        {
-          name: '基础详情',
-          icon: 'smile',
-          path: '/basic-profile',
-          component: './basic-profile',
-        },
       ],
     },
   ],
