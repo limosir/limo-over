@@ -1,27 +1,36 @@
 import * as usersService from '../services/index';
 
 export default {
-  namespace: 'coopcompanyinfo',
+  namespace: 'coopCompanyInfo',
   state: {
     list: [],
     total: null,
   },
   reducers: {
-    save(state, { payload: { data: list, total } }) {
+    save(
+      state,
+      {
+        payload: { data: list, total },
+      }
+    ) {
       return { ...state, list, total };
     },
   },
   effects: {
-    *updateList({ payload: { page } }, { call, put }) {
+    *updateList(
+      {
+        payload: { page },
+      },
+      { call, put }
+    ) {
       const { data, headers } = yield call(usersService.fetchList, { page });
-      console.log("出发了")
       yield put({ type: 'save', payload: { data, total: headers['x-total-count'] } });
     },
   },
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname === '/baseinfomanager/coopcompanyinfo') {
+        if (pathname === '/baseInfoManager/coopCompanyInfo') {
           dispatch({ type: 'updateList', payload: query });
         }
       });

@@ -42,7 +42,8 @@ export default {
   'basic-form.client.placeholder':
     'Please describe your customer service, internal customers directly @ Name / job number',
   'basic-form.invites.label': 'Inviting critics',
-  'basic-form.invites.placeholder': 'Please direct @ Name / job number, you can invite up to 5 people',
+  'basic-form.invites.placeholder':
+    'Please direct @ Name / job number, you can invite up to 5 people',
   'basic-form.weight.label': 'Weight',
   'basic-form.weight.placeholder': 'Please enter weight',
   'basic-form.public.label': 'Target disclosure',

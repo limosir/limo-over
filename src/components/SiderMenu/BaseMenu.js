@@ -24,7 +24,6 @@ const getIcon = icon => {
 };
 
 export default class BaseMenu extends PureComponent {
-
   /**
    * 获得菜单子节点
    * @memberof SiderMenu
@@ -128,7 +127,6 @@ export default class BaseMenu extends PureComponent {
       className,
       collapsed,
     } = this.props;
-    console.log("this.pros",this.props)
     // if pathname can't match, use the nearest parent's key
     let selectedKeys = this.getSelectedMenuKeys(pathname);
     if (!selectedKeys.length && openKeys) {

@@ -67,7 +67,7 @@ class BasicLayout extends React.PureComponent {
       type: 'menu/getMenuData',
       payload: { routes, authority },
     });
-    console.log("routes", "authority",routes, authority)
+    console.log('routes', 'authority', routes, authority);
   }
 
   componentDidUpdate(preProps) {
@@ -191,8 +191,8 @@ class BasicLayout extends React.PureComponent {
       </Layout>
     );
     if (this.props.location.pathname === '/login') {
-      console.log("props- login",this.props)
-      return <div>{this.props.children}</div>
+      console.log('props- login', this.props);
+      return <div>{this.props.children}</div>;
     }
     return (
       <React.Fragment>

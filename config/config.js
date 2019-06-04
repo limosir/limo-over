@@ -68,150 +68,160 @@ export default {
           component: './login',
         },
         {
-          path: '/baseinfomanager',
+          path: '/baseInfoManager',
           icon: 'smile',
           name:"基础信息管理",
           routes: [
             {
-              path: '/baseinfomanager',
-              redirect: '/baseinfomanager/coopcompanyinfo',
+              path: '/baseInfoManager',
+              redirect: '/baseInfoManager/coopCompanyInfo',
             },
             {
               name:"合作公司信息",
-              path: '/baseinfomanager/coopcompanyinfo',
+              path: '/baseInfoManager/coopCompanyInfo',
               icon: 'smile',
-              // component: './baseinfomanager/coopcompanyinfo',
+              // component: './baseInfoManager/coopCompanyInfo',
               routes: [
                     {
-                      path: '/baseinfomanager/coopcompanyinfo/detail',
-                      component: './baseinfomanager/coopcompanyinfo/detail/index',
+                      path: '/baseInfoManager/coopCompanyInfo/detail',
+                      component: './baseInfoManager/coopCompanyInfo/detail/index',
                     },
                     {
-                      path: '/baseinfomanager/coopcompanyinfo',
-                      component: './baseinfomanager/coopcompanyinfo',
+                      path: '/baseInfoManager/coopCompanyInfo',
+                      component: './baseInfoManager/coopCompanyInfo',
                     },
                   ],
             },
             {
               name:"个人开发者信息",
-              path: '/baseinfomanager/aloneDeveloperInfor',
+              path: '/baseInfoManager/aloneDeveloperInfor',
               icon: 'smile',
-              // component: './baseinfomanager/aloneDeveloperInfor',
+              // component: './baseInfoManager/aloneDeveloperInfor',
               routes: [
                 {
-                  path: '/baseinfomanager/aloneDeveloperInfor/detail',
-                  component: './baseinfomanager/aloneDeveloperInfor/detail/index',
+                  path: '/baseInfoManager/aloneDeveloperInfor/detail',
+                  component: './baseInfoManager/aloneDeveloperInfor/detail/index',
                 },
                 {
-                  path: '/baseinfomanager/aloneDeveloperInfor',
-                  component: './baseinfomanager/aloneDeveloperInfor',
+                  path: '/baseInfoManager/aloneDeveloperInfor',
+                  component: './baseInfoManager/aloneDeveloperInfor',
                 },
               ],
             },
             {
               name:"游戏基础信息",
-              path: '/baseinfomanager/1',
+              path: '/baseInfoManager/1',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './baseInfoManager/gameBasics'
             }
           ]
         },
-        {//reportquerymanager
-          path: '/reportquerymanager',
+        {//reportQueryManager
+          path: '/reportQueryManager',
           icon: 'smile',
           name:"报表查询管理",
           routes: [
             {
-              path: '/reportquerymanager',
-              redirect: '/reportquerymanager/estimatewaterform',
+              path: '/reportQueryManager',
+              redirect: '/reportQueryManager/estimateWaterForm',
             },
             {
               name:"预估流水明细表",
-              path: '/reportquerymanager/estimatewaterform',
+              path: '/reportQueryManager/estimateWaterForm',
               icon: 'smile',
-              component: './reportquerymanager/estimatewaterform'
+              component: './reportQueryManager/estimateWaterForm'
               // routes: [
               //       {
-              //         path: '/baseinfomanager/coopcompanyinfo/detail',
-              //         component: './baseinfomanager/coopcompanyinfo/detail/index',
+              //         path: '/baseInfoManager/coopCompanyInfo/detail',
+              //         component: './baseInfoManager/coopCompanyInfo/detail/index',
               //       },
               //       {
-              //         path: '/baseinfomanager/coopcompanyinfo',
-              //         component: './baseinfomanager/coopcompanyinfo',
+              //         path: '/baseInfoManager/coopCompanyInfo',
+              //         component: './baseInfoManager/coopCompanyInfo',
               //       },
               //     ],
             },
             {
               name:"结算流水明细表",
-              path: '/baseinfomanager/4',
+              path: '/reportQueryManager/settlementWaterDetail',
               icon: 'smile',
-              component: './baseinfomanager/aloneDeveloperInfor'
+              component: './reportQueryManager/settlementWaterDetail'
             },
             {
               name:"结算流水汇总表",
-              path: '/baseinfomanager/5',
+              path: '/reportQueryManager/settlementWaterTotal',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/settlementWaterTotal'
             },
             {
-              name:"零钱体现汇总表",
-              path: '/baseinfomanager/6',
+              name:"零钱提现汇总表",
+              path: '/reportQueryManager/changeWithdrawalTotal',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              // component: './reportQueryManager/changeWithdrawalTotal'
+              routes: [
+                {
+                  path: '/reportQueryManager/changeWithdrawalTotal/detail',
+                  component: './reportQueryManager/changeWithdrawalTotal/detail/index',
+                },
+                {
+                  path: '/reportQueryManager/changeWithdrawalTotal',
+                  component: './reportQueryManager/changeWithdrawalTotal',
+                },
+              ],
             },
             {
               name:"会员卡重置汇总表",
-              path: '/baseinfomanager/7',
+              path: '/reportQueryManager/resetCardTotal',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/resetCardTotal'
             },
             {
               name:"金钻重置汇总表",
-              path: '/baseinfomanager/8',
+              path: '/reportQueryManager/resetDiamondTotal',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/resetDiamondTotal'
             },
             {
-              name:"计算状态查询表",
-              path: '/baseinfomanager/9',
+              name:"结算状态查询表",
+              path: '/reportQueryManager/settlementStateQuery',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/settlementStateQuery'
             },
             {
               name:"扣项金额查询表",
-              path: '/baseinfomanager/0',
+              path: '/reportQueryManager/deductMoneyQuery',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/deductMoneyQuery'
             },
             {
               name:"应付账龄分析表",
-              path: '/baseinfomanager/11',
+              path: '/reportQueryManager/copeAgeAnalyse',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/copeAgeAnalyse'
             },
             {
               name:"应收账龄分析表",
-              path: '/baseinfomanager/12',
+              path: '/reportQueryManager/accountsAgeAnalyse',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/accountsAgeAnalyse'
             },
             {
               name:"应收坏账计提表",
-              path: '/baseinfomanager/13',
+              path: '/reportQueryManager/accountsBadForm',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/accountsBadForm'
             },
             {
               name:"进项发票查询表",
-              path: '/baseinfomanager/gameBasics',
+              path: '/reportQueryManager/incomeInvoiceQuery',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/incomeInvoiceQuery'
             },
             {
               name:"消项发票查询表",
-              path: '/baseinfomanager/14',
+              path: '/reportQueryManager/clearInvoiceQuery',
               icon: 'smile',
-              component: './baseinfomanager/gameBasics'
+              component: './reportQueryManager/clearInvoiceQuery'
             }
           ]
         },

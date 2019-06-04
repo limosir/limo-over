@@ -1,7 +1,6 @@
 import memoizeOne from 'memoize-one';
 import isEqual from 'lodash/isEqual';
 
-
 import Authorized from '@/utils/Authorized';
 
 const { check } = Authorized;
@@ -27,7 +26,7 @@ function formatter(data, parentAuthority) {
         // locale,
         authority: item.authority || parentAuthority,
       };
-      console.log("id", item, "result",result)
+      console.log('id', item, 'result', result);
       if (item.routes) {
         const children = formatter(item.routes, item.authority);
         // Reduce memory usage
@@ -105,10 +104,10 @@ export default {
       yield put({
         type: 'save',
         // payload: { menuData, breadcrumbNameMap },
-        payload: { menuData }
+        payload: { menuData },
       });
-      console.log('menuData',menuData)
-      console.log('breadcrumbNameMap',menuData)
+      console.log('menuData', menuData);
+      console.log('breadcrumbNameMap', menuData);
     },
   },
 

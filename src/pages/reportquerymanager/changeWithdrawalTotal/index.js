@@ -14,6 +14,7 @@ import {
   Card,
 } from 'antd';
 import { connect } from 'dva';
+import router from 'umi/router';
 import cn from 'classnames';
 import styles from './index.less';
 
@@ -32,65 +33,54 @@ class estimateForm extends PureComponent {
         width: 70,
         render: (text, record, index) => index + 1,
       },
-      // {title:'流水ID',visible:true,dataIndex: 'pay_flow_uuid',orter:true,fixed:true,align:'center',width:100},
-      { title: '业务类型', visible: true, dataIndex: 'business_name', align: 'center', width: 100 },
+      { title: '流水ID', visible: true, dataIndex: 'pay_flow_uuid', align: 'center', width: 100 },
+      { title: '流水月份', visible: true, dataIndex: 'business_name', align: 'center', width: 100 },
+      { title: '用户ID', visible: true, dataIndex: 'start_time_day', align: 'center', width: 100 },
+      { title: '用户昵称', visible: true, dataIndex: 'end_time_day', align: 'center', width: 100 },
+      { title: '真实姓名', visible: true, dataIndex: 'months', align: 'center', width: 100 },
+      { title: '身份证号', visible: true, dataIndex: 'channel1', align: 'center', width: 100 },
+      { title: '手机号', visible: true, dataIndex: 'channel2', align: 'center', width: 100 },
+      { title: '提现方式', visible: true, dataIndex: 'channel3', align: 'center', width: 100 },
       {
-        title: '支付类型',
+        title: '总支出金额（元）',
         visible: true,
-        dataIndex: 'start_time_day',
+        dataIndex: 'channel4',
+        align: 'center',
+        width: 130,
+      },
+      {
+        title: '代扣税款（元）',
+        visible: true,
+        dataIndex: 'channel5',
+        align: 'center',
+        width: 120,
+      },
+      {
+        title: '体现金额（元）',
+        visible: true,
+        dataIndex: 'channel6',
+        align: 'center',
+        width: 120,
+      },
+      //   {title:'操作',visible:true,dataIndex: 'action',align:'center',width: 130,render:(text, record)=>(
+      //     <a className="mgr" onClick={this.goDetail(text, record)}>查看</a> )
+      //  }
+      {
+        title: '操作',
+        visible: true,
+        dataIndex: 'channel7',
         align: 'center',
         width: 100,
+        render: (text, record, index) => (
+          <a
+            onClick={() => {
+              this.seeDetail(record, index);
+            }}
+          >
+            查看
+          </a>
+        ),
       },
-      { title: '合作类型', visible: true, dataIndex: 'end_time_day', align: 'center', width: 100 },
-      { title: '流水月份', visible: true, dataIndex: 'months', align: 'center', width: 100 },
-      { title: '开始时间', visible: true, dataIndex: 'channel1', align: 'center', width: 100 },
-      { title: '结束时间', visible: true, dataIndex: 'channel2', align: 'center', width: 100 },
-      { title: 'APPID', visible: true, dataIndex: 'channel3', align: 'center', width: 100 },
-      { title: '游戏ID', visible: true, dataIndex: 'channel4', align: 'center', width: 100 },
-      { title: '游戏名称', visible: true, dataIndex: 'channel5', align: 'center', width: 100 },
-      { title: '商户ID', visible: true, dataIndex: 'channel6', align: 'center', width: 100 },
-      { title: '商户名称', visible: true, dataIndex: 'channel7', align: 'center', width: 100 },
-      {
-        title: '合作方ID(供应商)',
-        visible: true,
-        dataIndex: 'channel8',
-        align: 'center',
-        width: 150,
-      },
-      {
-        title: '合作方名称(供应商)',
-        visible: true,
-        dataIndex: 'channel9',
-        align: 'center',
-        width: 160,
-      },
-      { title: '开发者本地ID', visible: true, dataIndex: 'channel10', align: 'center', width: 120 },
-      { title: '汇率', visible: true, dataIndex: 'channel11', align: 'center', width: 100 },
-      { title: '合作类型', visible: true, dataIndex: 'channel12', align: 'center', width: 100 },
-      { title: '设备类型', visible: true, dataIndex: 'channel13', align: 'center', width: 100 },
-      { title: '支付类型', visible: true, dataIndex: 'channel14', align: 'center', width: 100 },
-      { title: '发票类型', visible: true, dataIndex: 'channel15', align: 'center', width: 100 },
-      { title: '税率', visible: true, dataIndex: 'channel16', align: 'center', width: 100 },
-      { title: '实际扣减税率', visible: true, dataIndex: 'channel18', align: 'center', width: 120 },
-      { title: '实际扣减税费', visible: true, dataIndex: 'channel19', align: 'center', width: 120 },
-      { title: '米币礼券', visible: true, dataIndex: 'channel20', align: 'center', width: 100 },
-      { title: '流水金额*5%', visible: true, dataIndex: 'channel21', align: 'center', width: 120 },
-      { title: '用户运营成本', visible: true, dataIndex: 'channel22', align: 'center', width: 120 },
-      { title: '游戏礼券', visible: true, dataIndex: 'channel23', align: 'center', width: 100 },
-      { title: '分成礼券', visible: true, dataIndex: 'channel25', align: 'center', width: 100 },
-      { title: '不分成礼券', visible: true, dataIndex: 'channel24', align: 'center', width: 120 },
-      { title: '米币礼券', visible: true, dataIndex: 'channel26', align: 'center', width: 100 },
-      { title: '流水金额*5%', visible: true, dataIndex: 'channel27', align: 'center', width: 120 },
-      { title: '用户运营成本', visible: true, dataIndex: 'channel28', align: 'center', width: 120 },
-      { title: '可分成金额 ', visible: true, dataIndex: 'channel29', align: 'center', width: 120 },
-      { title: '渠道费率 ', visible: true, dataIndex: 'channel30', align: 'center', width: 100 },
-      { title: '渠道费 ', visible: true, dataIndex: 'channel31', align: 'center', width: 100 },
-      { title: '扣减税率', visible: true, dataIndex: 'channel32', align: 'center', width: 100 },
-      { title: '扣减税费 ', visible: true, dataIndex: 'channel33', align: 'center', width: 100 },
-      // {title:'CP分成比 ',visible:true,dataIndex: 'developer_divide_rate',align:'center',width: 100},
-      // {title:'预估CP分成额(含税) ',visible:true,dataIndex: 'developer_divide_amount_tax_included',align:'center',width: 160},
-      // {title:'预估CP分成额(不含税) ',visible:true,dataIndex: 'developer_divide_amount_tax_excluded',align:'center',width: 180},
-      // {title:'预估CP分成额(税额) ',visible:true,dataIndex: 'developer_divide_amount_tax',align:'center',width: 160},
     ];
     this.state = {
       monthValue: [],
@@ -109,33 +99,6 @@ class estimateForm extends PureComponent {
         'channel4',
         'channel5',
         'channel6',
-        'channel7',
-        'channel8',
-        'channel9',
-        'channel10',
-        'channel11',
-        'channel12',
-        'channel13',
-        'channel14',
-        'channel15',
-        'channel16',
-        'channel17',
-        'channel18',
-        'channel19',
-        'channel20',
-        'channel21',
-        'channel22',
-        'channel23',
-        'channel24',
-        'channel25',
-        'channel26',
-        'channel27',
-        'channel28',
-        'channel29',
-        'channel30',
-        'channel31',
-        'channel32',
-        'channel33',
       ],
       defaultColumns,
       showColumns: defaultColumns,
@@ -178,6 +141,16 @@ class estimateForm extends PureComponent {
       checkBusinessType: 0,
     };
   }
+  seeDetail = (record, index) => {
+    console.log('当前行数据', record, index);
+    router.push({
+      pathname: '/reportQueryManager/changeWithdrawalTotal/detail',
+      query: {
+        data: record,
+      },
+    });
+  };
+
   //切换筛选条件框的隐藏与显示
   toggleSearch = () => {
     this.setState({
@@ -247,7 +220,7 @@ class estimateForm extends PureComponent {
         delete values.status2;
       }
       console.log(values);
-      dispatch({ type: 'estimatewaterform/updateList', payload: 1 });
+      dispatch({ type: 'changewithdrawaltotal/updateList', payload: 1 });
       this.setState({
         visible: true,
       });
@@ -264,7 +237,7 @@ class estimateForm extends PureComponent {
   getListAllKey = () => {
     let listKey = [];
     //获取当前页数据
-    const data = this.props.estimatewaterform.list;
+    const data = this.props.changewithdrawaltotal.list;
     data.forEach(element => {
       //获取rowKey字段
       listKey.push(element.key);
@@ -294,7 +267,7 @@ class estimateForm extends PureComponent {
     });
   };
   render() {
-    const { list } = this.props.estimatewaterform;
+    const { list } = this.props.changewithdrawaltotal;
     const { loading } = this.props;
     const { businessType, payType, checkBusinessType, selectedRowKeys } = this.state;
     // 获得表格的实际宽度
@@ -463,8 +436,8 @@ const Estimate = Form.create()(estimateForm);
 // export default connect()(estimate)
 function mapStateToProps(state) {
   return {
-    estimatewaterform: state.estimatewaterform,
-    loading: state.loading.models.estimatewaterform,
+    changewithdrawaltotal: state.changewithdrawaltotal,
+    loading: state.loading.models.changewithdrawaltotal,
   };
 }
 

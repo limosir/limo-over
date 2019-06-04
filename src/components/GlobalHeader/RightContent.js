@@ -76,23 +76,19 @@ export default class GlobalHeaderRight extends PureComponent {
         <Menu.Item key="userCenter">
           <Icon type="user" />
           个人中心
-        
         </Menu.Item>
         <Menu.Item key="userinfo">
           <Icon type="setting" />
           个人设置
-         
         </Menu.Item>
         <Menu.Item key="triggerError">
           <Icon type="close-circle" />
           触发报错
-         
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="logout">
           <Icon type="logout" />
           退出登录
-        
         </Menu.Item>
       </Menu>
     );
@@ -185,7 +181,6 @@ export default class GlobalHeaderRight extends PureComponent {
         ) : (
           <Spin size="small" style={{ marginLeft: 8, marginRight: 8 }} />
         )}
-        
       </div>
     );
   }

@@ -115,7 +115,10 @@ class BasicForm extends PureComponent {
                 />
               )}
             </FormItem>
-            <FormItem {...formItemLayout} label={<FormattedMessage id="basic-form.standard.label" />}>
+            <FormItem
+              {...formItemLayout}
+              label={<FormattedMessage id="basic-form.standard.label" />}
+            >
               {getFieldDecorator('standard', {
                 rules: [
                   {

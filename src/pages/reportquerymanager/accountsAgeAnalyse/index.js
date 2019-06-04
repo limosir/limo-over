@@ -3,6 +3,6 @@ import DefaultBreadcrumb from '@/utils/Breakcrumbs';
 export default () => (
   <div>
     <DefaultBreadcrumb />
-    <p style={{ textAlign: 'center' }}>游戏基础信息</p>
+    <p style={{ textAlign: 'center' }}>应收账龄分析表</p>
   </div>
 );

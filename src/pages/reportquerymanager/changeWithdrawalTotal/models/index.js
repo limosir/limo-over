@@ -1,7 +1,7 @@
 import * as usersService from '../services/index';
 
 export default {
-  namespace: 'alonedetail',
+  namespace: 'changewithdrawaltotal',
   state: {
     list: [],
     total: null,
@@ -30,8 +30,8 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        //获取路由携带参数 请求详情数据
-        if (pathname === '/baseInfoManager/aloneDeveloperInfor/detail') {
+        // console.log("触发",pathname)
+        if (pathname === '/reportQueryManager/changeWithdrawalTotal') {
           dispatch({ type: 'updateList', payload: query });
         }
       });
