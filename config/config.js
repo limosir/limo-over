@@ -110,7 +110,7 @@ export default {
             },
             {
               name:"游戏基础信息",
-              path: '/baseInfoManager/1',
+              path: '/baseInfoManager/gameBasics',
               icon: 'smile',
               component: './baseInfoManager/gameBasics'
             }
@@ -230,6 +230,218 @@ export default {
               path: '/reportQueryManager/clearInvoiceQuery',
               icon: 'smile',
               component: './reportQueryManager/clearInvoiceQuery'
+            }
+          ]
+        },
+        {
+          path: '/estimateWaterManager',
+          icon: 'aliwangwang',
+          name:"预估流水管理",
+          routes: [
+            {
+              path: '/estimateWaterManager',
+              redirect: '/estimateWaterManager/periodEstimateWater',
+            },
+            {
+              name:"本期预估流水核对",
+              path: '/estimateWaterManager/periodEstimateWater',
+              icon: 'smile',
+              component: './estimateWaterManager/periodEstimateWater',
+              // routes: [
+              //       // {
+              //       //   path: '/estimateWaterManager/periodEstimateWater/detail',
+              //       //   component: './estimateWaterManager/periodEstimateWater/detail/index',
+              //       // },
+              //       {
+              //         path: '/estimateWaterManager/periodEstimateWater',
+              //         component: './estimateWaterManager/periodEstimateWater',
+              //       },
+              //     ],
+            },
+            {
+              name:"往期预估流水补录",
+              path: '/estimateWaterManager/previousEstimateWater',
+              icon: 'smile',
+              component: './estimateWaterManager/previousEstimateWater',
+            },
+            {
+              name:"预估流水推送SAP",
+              path: '/estimateWaterManager/estimateWaterSAP',
+              icon: 'smile',
+              component: './estimateWaterManager/estimateWaterSAP'
+            }
+          ]
+        },
+        {
+          path: '/gamesSettlementManager',
+          icon: 'smile',
+          name:"游戏结算管理",
+          routes: [
+            {
+              path: '/gamesSettlementManager',
+              redirect: '/gamesSettlementManager/businessTypeManager',
+            },
+            {
+              name:"业务类型管理",
+              path: '/gamesSettlementManager/businessTypeManager',
+              icon: 'smile',
+              component: './gamesSettlementManager/businessTypeManager',
+              // routes: [
+              //       // {
+              //       //   path: '/estimateWaterManager/periodEstimateWater/detail',
+              //       //   component: './estimateWaterManager/periodEstimateWater/detail/index',
+              //       // },
+              //       {
+              //         path: '/estimateWaterManager/periodEstimateWater',
+              //         component: './estimateWaterManager/periodEstimateWater',
+              //       },
+              //     ],
+            },
+            {
+              name:"结算状态管理",
+              path: '/gamesSettlementManager/settlementStatusManager',
+              icon: 'smile',
+              component: './gamesSettlementManager/settlementStatusManager',
+            },
+            {
+              name:"扣项信息管理",
+              path: '/gamesSettlementManager/deductInfoManager',
+              icon: 'smile',
+              component: './gamesSettlementManager/deductInfoManager'
+            }
+          ]
+        },
+        {
+          path: '/prepaidBillingManager',
+          icon: 'smile',
+          name:"预付账单管理",
+          routes: [
+            {
+              path: '/prepaidBillingManager',
+              redirect: '/prepaidBillingManager/outstandingMgr',
+            },
+            {
+              name:"未结预付款管理",
+              path: '/prepaidBillingManager/outstandingMgr',
+              icon: 'smile',
+              component: './prepaidBillingManager/outstandingMgr',
+            },
+            {
+              name:"预付结算单管理",
+              path: '/prepaidBillingManager/prepaymentStatementMgr',
+              icon: 'smile',
+              component: './prepaidBillingManager/prepaymentStatementMgr',
+            },
+            {
+              name:"BPM审批单管理",
+              path: '/prepaidBillingManager/BPM',
+              icon: 'smile',
+              component: './prepaidBillingManager/BPM',
+            },
+            {
+              name:"SAP付款单管理",
+              path: '/prepaidBillingManager/SAP',
+              icon: 'smile',
+              component: './prepaidBillingManager/SAP',
+            },
+          ]
+        },
+        {
+          path: '/billPayableManager',
+          icon: 'smile',
+          name:"应付账单管理",
+          routes: [
+            {
+              path: '/billPayableManager',
+              redirect: '/billPayableManager/outstandingCurrentMgr',
+            },
+            {
+              name:"未结算流水管理",
+              path: '/billPayableManager/outstandingCurrentMgr',
+              icon: 'smile',
+              component: './billPayableManager/outstandingCurrentMgr',
+            },
+            {
+              name:"应付结算单管理",
+              path: '/billPayableManager/accountsPayableMgr',
+              icon: 'smile',
+              component: './billPayableManager/accountsPayableMgr',
+            },
+            {
+              name:"BPM审批单管理",
+              path: '/billPayableManager/BPM',
+              icon: 'smile',
+              component: './billPayableManager/BPM',
+            },
+            {
+              name:"SAP付款单管理",
+              path: '/billPayableManager/SAP',
+              icon: 'smile',
+              component: './billPayableManager/SAP',
+            },
+          ]
+        },
+        {
+          path: '/accountReceivableManager',
+          icon: 'smile',
+          name:"应收账单管理",
+          routes: [
+            {
+              path: '/accountReceivableManager',
+              redirect: '/accountReceivableManager/outstandingCurrentMgr',
+            },
+            {
+              name:"未结算流水管理",
+              path: '/accountReceivableManager/outstandingCurrentMgr',
+              icon: 'smile',
+              component: './accountReceivableManager/outstandingCurrentMgr',
+            },
+            {
+              name:"应收结算单管理",
+              path: '/accountReceivableManager/accountsReceivableMgr',
+              icon: 'smile',
+              component: './accountReceivableManager/accountsReceivableMgr',
+            },
+            {
+              name:"收款单管理",
+              path: '/accountReceivableManager/receiptMgr',
+              icon: 'smile',
+              component: './accountReceivableManager/receiptMgr',
+            },
+            {
+              name:"回款单管理",
+              path: '/accountReceivableManager/returnMoneyMgr',
+              icon: 'smile',
+              component: './accountReceivableManager/returnMoneyMgr',
+            },
+          ]
+        },
+        {
+          path: '/complaintRefundManager',
+          icon: 'smile',
+          name:"客诉退款管理",
+          routes: [
+            {
+              path: '/complaintRefundManager',
+              redirect: '/complaintRefundManager/refundOrderMgr',
+            },
+            {
+              name:"退款单管理",
+              path: '/complaintRefundManager/refundOrderMgr',
+              icon: 'smile',
+              component: './complaintRefundManager/refundOrderMgr',
+            },
+            {
+              name:"BPM审批单管理",
+              path: '/complaintRefundManager/BPM',
+              icon: 'smile',
+              component: './complaintRefundManager/BPM',
+            },
+            {
+              name:"SAP付款单管理",
+              path: '/complaintRefundManager/SAP',
+              icon: 'smile',
+              component: './complaintRefundManager/SAP',
             }
           ]
         },

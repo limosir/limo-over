@@ -21,7 +21,7 @@ import styles from './index.less';
 const FormItem = Form.Item;
 const { RangePicker } = DatePicker;
 const { Option } = Select;
-class estimateForm extends PureComponent {
+class changeWithdrawalTotal extends PureComponent {
   constructor(props) {
     super(props);
     const defaultColumns = [
@@ -432,7 +432,7 @@ class estimateForm extends PureComponent {
     );
   }
 }
-const Estimate = Form.create()(estimateForm);
+const Estimate = Form.create()(changeWithdrawalTotal);
 // export default connect()(estimate)
 function mapStateToProps(state) {
   return {

@@ -25,6 +25,41 @@ const routes = [
   { path: '/reportQueryManager/accountsBadForm', breadcrumb: '应收坏账计提表' },
   { path: '/reportQueryManager/incomeInvoiceQuery', breadcrumb: '进项发票查询表' },
   { path: '/reportQueryManager/clearInvoiceQuery', breadcrumb: '消项发票查询表' },
+
+
+  { path: '/estimateWaterManager', breadcrumb: '预估流水管理' },
+  { path: '/estimateWaterManager/periodEstimateWater', breadcrumb: '本期预估流水核对' },
+  { path: '/estimateWaterManager/previousEstimateWater', breadcrumb: '往期预估流水补录' },
+  { path: '/estimateWaterManager/estimateWaterSAP', breadcrumb: '预估流水推送SAP' },
+
+  { path: '/gamesSettlementManager', breadcrumb: '游戏结算管理' },
+  { path: '/gamesSettlementManager/businessTypeManager', breadcrumb: '业务类型管理' },
+  { path: '/gamesSettlementManager/settlementStatusManager', breadcrumb: '结算状态管理' },
+  { path: '/gamesSettlementManager/deductInfoManager', breadcrumb: '扣项信息管理' },
+
+  { path: '/prepaidBillingManager', breadcrumb: '预付账单管理' },
+  { path: '/prepaidBillingManager/outstandingMgr', breadcrumb: '未结预付款管理' },
+  { path: '/prepaidBillingManager/prepaymentStatementMgr', breadcrumb: '预付结算单管理' },
+  { path: '/prepaidBillingManager/BPM', breadcrumb: 'BPM审批单管理' },
+  { path: '/prepaidBillingManager/SAP', breadcrumb: 'SAP付款单管理' },
+
+
+  { path: '/billPayableManager', breadcrumb: '应付账单管理' },
+  { path: '/billPayableManager/outstandingCurrentMgr', breadcrumb: '未结算流水管理' },
+  { path: '/billPayableManager/accountsPayableMgr', breadcrumb: '应付结算单管理' },
+  { path: '/billPayableManager/BPM', breadcrumb: 'BPM审批单管理' },
+  { path: '/billPayableManager/SAP', breadcrumb: 'SAP付款单管理' },
+
+  { path: '/accountReceivableManager', breadcrumb: '应收账单管理' },
+  { path: '/accountReceivableManager/outstandingCurrentMgr', breadcrumb: '未结算流水管理' },
+  { path: '/accountReceivableManager/accountsReceivableMgr', breadcrumb: '应收结算单管理' },
+  { path: '/accountReceivableManager/receiptMgr', breadcrumb: '收款单管理' },
+  { path: '/accountReceivableManager/returnMoneyMgr', breadcrumb: '回款单管理' },
+
+  { path: '/complaintRefundManager', breadcrumb: '客诉退款管理' },
+  { path: '/complaintRefundManager/refundOrderMgr', breadcrumb: '退款单管理' },
+  { path: '/complaintRefundManager/BPM', breadcrumb: 'BPM审批单管理' },
+  { path: '/complaintRefundManager/SAP', breadcrumb: 'SAP付款单管理' },
 ];
 
 const DefaultBreadcrumb = withBreadcrumbs(routes)(({ breadcrumbs }) => (
