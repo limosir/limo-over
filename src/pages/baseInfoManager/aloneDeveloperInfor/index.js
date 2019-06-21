@@ -45,12 +45,12 @@ class AloneDeveloperInfo extends PureComponent {
   onChangePage = (page, pageSize) => {
     console.log('分页点击', page, pageSize, list);
     // this.props.dispatch({
-    //     type: 'coopcompanyinfo/updateList',
+    //     type: 'alonedeveloperinfor/updateList',
     //     payload: {
     //       page
     //     }
 
-    dispatch({ type: 'coopcompanyinfo/updateList', payload: { page } });
+    dispatch({ type: 'alonedeveloperinfor/updateList', payload: { page } });
   };
   //分页总数显示
   showTableTotal = (total, range) => {
@@ -80,7 +80,7 @@ class AloneDeveloperInfo extends PureComponent {
   render() {
     const spanCol = { labelCol: { span: 8 }, wrapperCol: { span: 16 } };
     const { getFieldDecorator } = this.props.form;
-    const { list } = this.props.coopcompanyinfo;
+    const { list } = this.props.alonedeveloperinfor;
     const columns = [
       {
         title: '序号',
@@ -197,8 +197,8 @@ function mapStateToProps(state) {
     //   list,
     //   total,
     //   page,
-    //   loading: state.loading.models.coopcompanyinfo,
-    coopcompanyinfo: state.alonedeveloperinfor,
+    //   loading: state.loading.models.alonedeveloperinfor,
+    alonedeveloperinfor: state.alonedeveloperinfor,
     loading: state.loading.models.alonedeveloperinfor,
   };
 }

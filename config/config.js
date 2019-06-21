@@ -324,7 +324,16 @@ export default {
               name:"未结预付款管理",
               path: '/prepaidBillingManager/outstandingMgr',
               icon: 'smile',
-              component: './prepaidBillingManager/outstandingMgr',
+              routes: [
+                {
+                  path: '/prepaidBillingManager/outstandingMgr/createstatement',
+                  component: './prepaidBillingManager/outstandingMgr/createStatement/index',
+                },
+                {
+                  path: '/prepaidBillingManager/outstandingMgr',
+                  component: './prepaidBillingManager/outstandingMgr',
+                },
+              ],
             },
             {
               name:"预付结算单管理",

@@ -39,6 +39,7 @@ const routes = [
 
   { path: '/prepaidBillingManager', breadcrumb: '预付账单管理' },
   { path: '/prepaidBillingManager/outstandingMgr', breadcrumb: '未结预付款管理' },
+  { path: '/prepaidBillingManager/outstandingMgr/createstatement', breadcrumb: '新建结算单' },
   { path: '/prepaidBillingManager/prepaymentStatementMgr', breadcrumb: '预付结算单管理' },
   { path: '/prepaidBillingManager/BPM', breadcrumb: 'BPM审批单管理' },
   { path: '/prepaidBillingManager/SAP', breadcrumb: 'SAP付款单管理' },
