@@ -7,6 +7,7 @@ export default {
       {
         antd: true,
         dva: { hmr: true },
+        dynamicImport: true,
         // targets: { ie: 11 },
         // locale: {
         //   enable: false,
@@ -27,7 +28,7 @@ export default {
         modifyRequest: true,
         autoAddMenu: true,
       },
-    ],
+    ]
   ],
   /**
    * 代理配置
@@ -489,5 +490,5 @@ export default {
   theme: { 'primary-color': primaryColor },
   externals: { '@antv/data-set': 'DataSet' },
   ignoreMomentLocale: true,
-  lessLoaderOptions: { javascriptEnabled: true },
+  lessLoaderOptions: { javascriptEnabled: true }
 };

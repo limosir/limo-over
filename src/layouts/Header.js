@@ -5,7 +5,6 @@ import Animate from 'rc-animate';
 import { connect } from 'dva';
 import router from 'umi/router';
 import GlobalHeader from '@/components/GlobalHeader';
-import TopNavHeader from '@/components/TopNavHeader';
 import styles from './Header.less';
 
 const { Header } = Layout;
@@ -118,29 +117,16 @@ class HeaderView extends PureComponent {
     const { isMobile, handleMenuCollapse, setting } = this.props;
     const { navTheme, layout, fixedHeader } = setting;
     const { visible } = this.state;
-    const isTop = layout === 'topmenu';
     const width = this.getHeadWidth();
     const HeaderDom = visible ? (
       <Header style={{ padding: 0, width }} className={fixedHeader ? styles.fixedHeader : ''}>
-        {isTop && !isMobile ? (
-          <TopNavHeader
-            theme={navTheme}
-            mode="horizontal"
+        <GlobalHeader
             onCollapse={handleMenuCollapse}
             onNoticeClear={this.handleNoticeClear}
             onMenuClick={this.handleMenuClick}
             onNoticeVisibleChange={this.handleNoticeVisibleChange}
             {...this.props}
           />
-        ) : (
-          <GlobalHeader
-            onCollapse={handleMenuCollapse}
-            onNoticeClear={this.handleNoticeClear}
-            onMenuClick={this.handleMenuClick}
-            onNoticeVisibleChange={this.handleNoticeVisibleChange}
-            {...this.props}
-          />
-        )}
       </Header>
     ) : null;
     return (

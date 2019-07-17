@@ -27,6 +27,7 @@ class LoginForm extends Component {
               <Input
                 prefix={<Icon type="user" className={styles.iconbg} />}
                 placeholder="输入账号"
+                autocomplete="off"
               />
             )}
           </FormItem>
@@ -35,6 +36,7 @@ class LoginForm extends Component {
               <Input
                 prefix={<Icon type="lock" className={styles.iconbg} />}
                 type="password"
+                autocomplete="off"
                 placeholder="输入密码"
               />
             )}
